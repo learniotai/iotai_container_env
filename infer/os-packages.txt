@@ -1,0 +1,16 @@
+wget
+ssh
+emacs
+vim
+less
+file
+nginx
+libcurl4
+curl
+python3-pip
+gnupg
+unzip
+eog
+graphviz
+gdebi-core
+gdebi

@@ -1,0 +1,35 @@
+name: base
+channels:
+  - pytorch
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - setuptools
+  - tensorflow-gpu
+  - pytorch
+  - torchvision
+  - torchtext
+  - scipy
+  - numpy
+  - matplotlib
+  - bokeh
+  - dash
+  - pandas
+  - seaborn
+  - flask
+  - flask-restplus
+  - scikit-image
+  - scikit-learn
+  - opencv
+  - celery
+  - nibabel
+  - lightgbm
+  - pydicom
+  - simpleitk
+  - pip
+  - pip:
+    - monai
+    - pyvista
+# Prefix must match base miniconda installation directory 
+prefix: /opt/miniconda

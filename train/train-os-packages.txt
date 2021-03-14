@@ -1,0 +1,9 @@
+git
+mongodb 
+python3-pymongo
+cmake
+cmake-gui
+gdb
+libcpprest-dev
+openjdk-11-jre-headless
+openjdk-11-jdk
