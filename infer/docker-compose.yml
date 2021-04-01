@@ -1,12 +1,14 @@
 version: '3'
 services:
   iotai_infer:
-    build:
+        build:
       context: .
     volumes:
       - "/etc/passwd:/etc/passwd:ro"
       - "/etc/group:/etc/group:ro"
       - /home:/home
-    user: "1000:1000"
-    image: "iotai_infer_gpu:latest"
+    ports:
+      - "480:80"  # nginx 
+    user: ${CURRENT_UID}
+    image: "iotai_train_gpu:latest"
     
