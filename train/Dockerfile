@@ -14,12 +14,11 @@ RUN apt-get update && xargs -a ${TMP}/train-os-packages.txt apt-get install -y -
 
 WORKDIR ${TMP}
 RUN curl -o ${TMP}/code.deb -fSL https://go.microsoft.com/fwlink/?LinkID=760868 && \
-    gdebi -n -q ${TMP}/code.deb && \
-    wget --quiet https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O ${TMP}/dbeaver.deb && \
-    gdebi -n -q ${TMP}/dbeaver.deb
-     # && \
-    # rm ${TMP}/*.sh && \
-    # rm ${TMP}/*.deb
+   gdebi -n -q ${TMP}/code.deb && \
+   wget --quiet https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O ${TMP}/dbeaver.deb && \
+   gdebi -n -q ${TMP}/dbeaver.deb && \
+   rm ${TMP}/*.sh && \
+   rm ${TMP}/*.deb
  # wget --quiet https://atom.io/download/deb -O ${TMP}/atom.deb && \ 
  #   dpkg -i ${TMP}/atom.deb && apt-get install -f && \
 
@@ -44,6 +43,7 @@ EXPOSE 8899
 EXPOSE 5006
 ADD launch_jupyter_notebook.sh /usr/local/bin
 ENV DISPLAY=":0"
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 ADD train-environment-conda.yml ${TMP}/
 RUN conda env update -f ${TMP}/train-environment-conda.yml

@@ -1,9 +1,10 @@
 # Build environment from base image compatible with system Nvidia and CUDA driver version
 # Base Docker images available from https://hub.docker.com/r/nvidia/cuda 
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04 
-
 # Newest base 
-# FROM nvidia/cuda:11.2.1-runtime-ubuntu20.04 
+FROM nvidia/cuda:11.2.1-runtime-ubuntu20.04 
+
+# Older Nvidia CUDA 
+# FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04 
 
 # Build image as root superuser
 USER root 
