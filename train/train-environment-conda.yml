@@ -11,6 +11,8 @@ dependencies:
   - jupyterlab
   - tqdm
   - pip
+  - pylint
+  - flake8
   - pip:
     - torchsummary
     - tfds-nightly

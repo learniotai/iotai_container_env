@@ -21,7 +21,7 @@ https://stackoverflow.com/questions/41346401/use-nvidia-docker-compose-launch-a-
 
 ~/.bashrc 
 ```
-export CURRENT_UID=$(id -u):$(id -g) docker-compose up
+export CURRENT_UID=$(id -u):$(id -g)
 ```
 
 ```

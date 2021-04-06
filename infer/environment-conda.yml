@@ -7,9 +7,9 @@ channels:
 dependencies:
   - setuptools
   - tensorflow-gpu
-  - pytorch
-  - torchvision
-  - torchtext
+  - pytorch::pytorch
+  - pytorch::torchvision
+  - pytorch::torchtext
   - scipy
   - numpy
   - matplotlib
