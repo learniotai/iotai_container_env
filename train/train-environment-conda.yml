@@ -10,9 +10,9 @@ dependencies:
   - jupyter
   - jupyterlab
   - tqdm
-  - pip
   - pylint
   - flake8
+  - pip
   - pip:
     - torchsummary
     - tfds-nightly

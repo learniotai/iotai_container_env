@@ -6,30 +6,28 @@ channels:
   - defaults
 dependencies:
   - setuptools
-  - tensorflow-gpu
-  - pytorch::pytorch
+  # YML file can specify channel for package
+  # pytorch Conda channel has latest Pytorch versions 
+  # channel search /opt/anaconda3/bin/conda search -c pytorch torch
+  - pytorch::pytorch=1.8.1
   - pytorch::torchvision
   - pytorch::torchtext
-  - scipy
-  - numpy
+  # Conda installs cudatoolkit to active GPU for ML packages
+  - tensorflow-gpu=2.4.1
   - matplotlib
   - bokeh
-  - dash
   - pandas
   - seaborn
-  - flask
   - flask-restplus
   - scikit-image
   - scikit-learn
   - opencv
   - celery
-  - nibabel
   - lightgbm
-  - pydicom
-  - simpleitk
   - pip
   - pip:
     - monai
     - pyvista
 # Prefix must match base miniconda installation directory 
+# Loading environment into base so no activation required for simpler use 
 prefix: /opt/miniconda
