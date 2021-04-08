@@ -16,12 +16,13 @@ RUN curl -o ${TMP}/code.deb -fSL https://go.microsoft.com/fwlink/?LinkID=760868 
 
 
 WORKDIR ${OPT}
-RUN wget --quiet https://download.jetbrains.com/python/pycharm-community-2020.1.1.tar.gz?_ga=2.1894769.1984017565.1590319299-433175914.1590319299 -O ${OPT}/pycharm-ce.tar.gz && \ 
+ENV PYCHARM_VERSION=pycharm-community-2021.1
+RUN wget --quiet https://download.jetbrains.com/python/${PYCHARM_VERSION}.tar.gz -O ${OPT}/pycharm-ce.tar.gz && \ 
     tar -xvzf ${OPT}/pycharm-ce.tar.gz && \
-    ln -svf ${OPT}/pycharm-community-2020.1.1/bin/pycharm.sh /usr/local/bin/pycharm.sh && \
-    # wget --quiet https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip -O ${OPT}/libtorch-shared-with-deps-latest.zip && \
-    # unzip ${OPT}/libtorch-shared-with-deps-latest.zip && \
-    rm ${OPT}/*.gz && \
+    ln -svf ${OPT}/${PYCHARM_VERSION}/bin/pycharm.sh /usr/local/bin/pycharm.sh && \
+    wget --quiet https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip -O ${OPT}/libtorch-shared-with-deps-latest.zip && \
+    unzip ${OPT}/libtorch-shared-with-deps-latest.zip && \
+    rm ${OPT}/*.gz  && \
     rm ${OPT}/*.zip
 
 ADD launch_jupyter_notebook.sh /usr/local/bin

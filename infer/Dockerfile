@@ -36,6 +36,3 @@ ENV PATH=${CONDA_HOME}/bin:${PATH}
 # Update packages into base Miniconda installation 
 ADD environment-conda.yml ${TMP}/
 RUN conda env update -f ${TMP}/environment-conda.yml
-
-# ADD requirements.txt ${TMP}/
-# RUN pip3 install -r ${TMP}/requirements.txt
