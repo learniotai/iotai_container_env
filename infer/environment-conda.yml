@@ -5,13 +5,13 @@ channels:
   - anaconda
   - defaults
 dependencies:
-  - setuptools
+#  - setuptools
   # YML file can specify channel for package
   # pytorch Conda channel has latest Pytorch versions 
   # channel search /opt/anaconda3/bin/conda search -c pytorch torch
-  - pytorch::pytorch=1.8.1
-  - pytorch::torchvision
-  - pytorch::torchtext
+  - pytorch::pytorch
+  - pytorch::torchvision=0.9.1
+  - pytorch::torchtext=0.9.1
   # Conda installs cudatoolkit to active GPU for ML packages
   - tensorflow-gpu=2.4.1
   - matplotlib
@@ -21,7 +21,7 @@ dependencies:
   - flask-restplus
   - scikit-image
   - scikit-learn
-  - opencv
+#  - opencv  # not compatible 
   - celery
   - lightgbm
   - pip

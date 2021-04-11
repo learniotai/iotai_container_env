@@ -32,6 +32,7 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86
 
 # Put Miniconda installation on path 
 ENV PATH=${CONDA_HOME}/bin:${PATH}
+RUN conda update -n base -c defaults conda
 
 # Update packages into base Miniconda installation 
 ADD environment-conda.yml ${TMP}/
