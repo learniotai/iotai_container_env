@@ -28,6 +28,7 @@ dependencies:
   - pip:
     - monai
     - pyvista
+    - pytorch-lightning
 # Prefix must match base miniconda installation directory 
 # Loading environment into base so no activation required for simpler use 
 prefix: /opt/miniconda

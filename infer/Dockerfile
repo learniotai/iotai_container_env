@@ -37,3 +37,4 @@ RUN conda update -n base -c defaults conda
 # Update packages into base Miniconda installation 
 ADD environment-conda.yml ${TMP}/
 RUN conda env update -f ${TMP}/environment-conda.yml
+RUN ln -svf /opt/miniconda/bin/python /usr/local/bin/python

@@ -16,5 +16,6 @@ dependencies:
   - pip:
     - torchsummary
     - tfds-nightly
+    - pycocotools
 # Prefix must match base miniconda installation directory 
 prefix: /opt/miniconda
