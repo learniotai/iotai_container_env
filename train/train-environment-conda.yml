@@ -12,6 +12,9 @@ dependencies:
   - tqdm
   - pylint
   - flake8
+  - pytest
+  - git
+  - git-lfs
   - pip
   - pip:
     - torchsummary
