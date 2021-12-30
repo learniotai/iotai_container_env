@@ -35,3 +35,4 @@ WORKDIR ${TMP}
 RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && \
     bash nodesource_setup.sh
 RUN apt-get install -y nodejs
+RUN npm install -g expo-cli
