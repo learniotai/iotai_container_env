@@ -31,3 +31,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 ADD train-environment-conda.yml ${TMP}/
 RUN conda env update -f ${TMP}/train-environment-conda.yml
+WORKDIR ${TMP}
+RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh && \
+    bash nodesource_setup.sh
+RUN apt-get install -y nodejs

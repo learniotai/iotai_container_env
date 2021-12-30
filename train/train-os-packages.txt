@@ -11,3 +11,4 @@ openjdk-11-jre-headless
 openjdk-11-jdk
 xz-utils
 julia
+make
