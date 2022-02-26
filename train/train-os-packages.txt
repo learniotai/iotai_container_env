@@ -1,8 +1,7 @@
 gcc
 g++
 git
-mongodb 
-python3-pymongo
+postgresql
 cmake
 cmake-gui
 gdb

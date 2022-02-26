@@ -1,28 +1,28 @@
 name: base
 channels:
   - pytorch
-  - conda-forge
-  - anaconda
   - defaults
+  - conda-forge
 dependencies:
 #  - setuptools
   # YML file can specify channel for package
   # pytorch Conda channel has latest Pytorch versions 
   # channel search /opt/anaconda3/bin/conda search -c pytorch torch
+  - python
   - pytorch::pytorch
-  - pytorch::torchvision=0.9.1
-  - pytorch::torchtext=0.9.1
+  - pytorch::torchvision
+  - pytorch::torchtext
+  # - nomkl
   # Conda installs cudatoolkit to active GPU for ML packages
-  - tensorflow-gpu=2.4.1
+  # - tensorflow-gpu  # main not be CUDA compatible with pytorch
   - matplotlib
   - bokeh
   - pandas
   - seaborn
-  - flask-restplus
+  - fastapi
   - scikit-image
   - scikit-learn
 #  - opencv  # not compatible 
-  - celery
   - lightgbm
   - pip
   - pip:

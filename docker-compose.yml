@@ -1,0 +1,52 @@
+version: '3'
+services:
+  infer:
+    build:
+      context: infer/
+      dockerfile: Dockerfile
+    user: ${CURRENT_UID}
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - "/etc/passwd:/etc/passwd:ro"
+      - "/etc/group:/etc/group:ro"
+      - /home:/home
+    ports:
+      - "580:80"  # nginx 
+    image: "iotai_infer_gpu:latest"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  train:
+    build:
+      context: train/
+      dockerfile: Dockerfile
+    user: ${CURRENT_UID}
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - DISPLAY
+    volumes:
+      - "/etc/passwd:/etc/passwd:ro"
+      - "/etc/group:/etc/group:ro"
+      - /home:/home
+      - /tmp/.X11-unix:/tmp/.X11-unix  # X11 applications 
+    ports:
+      - "480:80"  # nginx 
+      - "127.0.0.1:4888:8888"  # jupyter
+      - "127.0.0.1:4006:6006"  # tensorboard 
+    image: "iotai_train_gpu:latest"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

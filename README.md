@@ -8,23 +8,50 @@ See [Wiki](https://github.com/learniotai/iotai_container_env/wiki)
 docker
 docker-compose
 
-## Build 
-Build infer/ subdirectory first 
-Then build train/ subdirectory  
+## Build
 
-## NVIDIA 
+`docker-compose build`
 
-### Docker-compose with NVIDIA 
-https://stackoverflow.com/questions/41346401/use-nvidia-docker-compose-launch-a-container-but-exited-soon#comment73796775_41947086
+Creates
+
+```
+iotai_infer_gpu
+iotai_train_gpu
+```
+
+* `iotain_infer_gpu`: use for training models. 
+    `iotain_train_gpu` builds on `iotain_infer_gpu` adding development tools.
+* `iotain_infer_gpu`: use for runnign models in production. 
 
 ## Run
 
-~/.bashrc 
+~/.bashrc
 ```
 export CURRENT_UID=$(id -u):$(id -g)
 ```
 
+### Training container 
 ```
-docker-compose up 
+docker-compose up -d train
 ```
 
+### Inference container
+```
+docker-compose up -d infer
+```
+
+### Connect to running container
+
+List running containers
+`docker ps`
+
+Connect
+`docker exec -it iotai_container_env_train_1`
+
+## Setup launch command alias as alternative to launching with `docker-compose`
+
+## Inference container
+`alias iotai_infer='docker run --rm -u $(id -u):$(id -g) --name iotai_infer --runtime=nvidia -it -v  "/etc/passwd:/etc/passwd:ro" -v  "/etc/group:/etc/group:ro" -v "/home:/home" --memory=16g  --shm-size=16g -p "780:80" -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY iotai_infer_gpu:latest bash'`
+
+## Training container
+`alias iotai_train='docker run --rm -u $(id -u):$(id -g) --name iotai_train --runtime=nvidia -it -v  "/etc/passwd:/etc/passwd:ro" -v  "/etc/group:/etc/group:ro" -v "/home:/home" --memory=16g  --shm-size=16g -p "780:80" -p "7888:8888" -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY iotai_train_gpu:latest bash'`
