@@ -14,7 +14,7 @@ dependencies:
   - pytorch::torchtext
   # - nomkl
   # Conda installs cudatoolkit to active GPU for ML packages
-  # - tensorflow-gpu  # main not be CUDA compatible with pytorch
+  # - tensorflow-gpu  # may not be CUDA compatible with pytorch
   - matplotlib
   - bokeh
   - pandas

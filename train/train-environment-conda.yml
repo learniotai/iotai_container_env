@@ -20,5 +20,8 @@ dependencies:
     - torchsummary
     - tfds-nightly
     - pycocotools
+    - nltk
+    - mlflow
+    - torchviz
 # Prefix must match base miniconda installation directory 
 prefix: /opt/miniconda
